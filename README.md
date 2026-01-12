@@ -1,19 +1,8 @@
-# Building and Installing the Android APK
+npx expo prebuild --clean don't do this if already API is setup
 
-Follow these steps to build and install the release APK of your Expo/React Native app.
+cd android
+./gradlew assembleRelease
 
----
-
-## ⚠️ Important
-
-> Do **NOT** run `npx expo prebuild --clean` if your API is already set up.  
-> Running it may reset your existing native configuration.
-
----
-
-## 1. Prebuild the Project (Optional)
-
-If you need to generate native project files:
-
-```bash
-npx expo prebuild
+cd ..
+adb install android\app\build\outputs\apk\release\app-release.apk
+or copy the apk from this path and install it in phone
